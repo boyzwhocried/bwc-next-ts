@@ -2,10 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: all 0.15s ease;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --text: 173 40% 4%;
+  --background: 180 33% 97%;
+  --primary: 203 41% 67%;
+  --secondary: 356 39% 93%;
+  --accent: 22 41% 53%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,15 +26,32 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --text: 173 40% 96%;
+    --background: 180 33% 3%;
+    --primary: 203 41% 33%;
+    --secondary: 356 39% 7%;
+    --accent: 22 41% 47%;
   }
 }
 
 body {
+  margin: 0;
+  padding: 0;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: hsl(var(--background));
 }
+
+.noisetexture-overlay::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.03;
+  z-index: 1000;
+  pointer-events: none;
+  background: url("../../public/assets/texture/noise.gif");
+}
+
+
