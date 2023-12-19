@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Providers } from "./provider";
+import NavBar from "@/components/NavBar";
+import ThemeSwitch from "@/components/ThemeSwitch";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -20,19 +23,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>
-        <>
-          <div className="noisetexture-overlay" />
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={poppins.className}
+        style={{
+          WebkitFontSmoothing: "antialiased",
+          MozOsxFontSmoothing: "grayscale",
+          textRendering: "optimizeLegibility",
+          transition: "all 0.15s ease",
+        }}
+      >
+        <div className="noisetexture-overlay" />
+        <Providers>
           <div className="text-text">
             <div className="flex flex-col max-w-screen-xl mx-auto p-4 gap-2">
               {children}
-              {/* <ThemeModeToggle /> */}
+              <ThemeSwitch />
               {/* <Footer /> */}
             </div>
-            {/* <NavBar /> */}
+            <NavBar />
           </div>
-        </>
+        </Providers>
       </body>
     </html>
   );
