@@ -13,8 +13,22 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+        "spin-extra-slow": "spin 5s linear infinite",
+      },
+      colors: {
+        text: "hsl(var(--text) / <alpha-value>)",
+        background: "hsl(var(--background) / <alpha-value>)",
+        primary: "hsl(var(--primary) / <alpha-value>)",
+        primary10: "hsl(var(--primary10) / <alpha-value>)",
+        primary50: "hsl(var(--primary50) / <alpha-value>)",
+        secondary: "hsl(var(--secondary) / <alpha-value>)",
+        accent: "hsl(var(--accent) / <alpha-value>)",
+      },
     },
   },
+  darkMode:'class',
   plugins: [],
 }
 export default config
