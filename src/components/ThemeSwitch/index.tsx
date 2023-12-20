@@ -24,9 +24,9 @@ function ThemeModeToggle() {
   }
 
   return (
-    <div className="flex fixed bottom-0 right-0 py-4 px-4 justify-end sm:sticky sm:px-0 xl:fixed xl:px-4">
+    <div className="fixed bottom-0 right-0 px-4 py-4 justify-end sm:sticky sm:px-0 xl:fixed xl:px-4 flex">
       <button
-        className={`w-fit rounded-full backdrop-blur-sm shadow-xl ${
+        className={`rounded-full w-fit shadow-xl backdrop-blur-sm ${
           isDarkMode
             ? "bg-primary/50 sm:hover:bg-accent/50"
             : "bg-accent/50 sm:hover:bg-primary/50"

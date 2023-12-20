@@ -29,11 +29,10 @@ function NavBar() {
       }`}
     >
       <div className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
-        <a
-          href="/"
-          className="flex items-center font-bold sm:text-5xl text-4xl"
-        >
-          boyzwhocried
+        <a href="/" className="flex items-center">
+          <span className="text-4xl sm:text-5xl font-bold bg-clip-text bg-gradient-to-r from-primary to-accent text-transparent">
+            boyzwhocried
+          </span>
         </a>
         <div className="hidden sm:flex space-x-6">
           {navigation.map((nav, index) => (
