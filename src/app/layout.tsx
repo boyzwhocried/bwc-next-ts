@@ -4,6 +4,7 @@ import { Providers } from "./provider";
 import NavBar from "@/components/NavBar";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -30,18 +31,16 @@ export default function RootLayout({
           WebkitFontSmoothing: "antialiased",
           MozOsxFontSmoothing: "grayscale",
           textRendering: "optimizeLegibility",
-          transition: "all 0.15s ease",
+          transition: "all 0.3s ease",
         }}
       >
         <div className="noisetexture-overlay" />
         <Providers>
-          <div className="text-text">
-            <div className="flex flex-col max-w-screen-xl mx-auto p-4 gap-2">
-              {children}
-              <ThemeSwitch />
-              {/* <Footer /> */}
-            </div>
-            <NavBar />
+          <NavBar />
+          <div className="flex-col max-w-screen-xl mx-auto p-4">
+            {children}
+            <ThemeSwitch />
+            <Footer />
           </div>
         </Providers>
       </body>
