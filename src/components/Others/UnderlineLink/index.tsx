@@ -14,7 +14,7 @@ export const UnderlineLink = ({ indexKey, href, text }: UnderlineLinkProps) => {
       className="group hover:italic"
     >
       {text}
-      <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-[1px] bg-text"></span>
+      <span className="block h-[1px] max-w-0 bg-text group-hover:max-w-full transition-all duration-500"></span>
     </a>
   );
 };

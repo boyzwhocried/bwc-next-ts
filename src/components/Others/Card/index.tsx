@@ -24,7 +24,7 @@ export const Card = ({
 }: CardProps) => {
   return (
     <div
-      className="bg-primary10 max-w-sm rounded-xl overflow-hidden shadow-lg cursor-pointer"
+      className="max-w-sm rounded-xl overflow-hidden shadow-lg cursor-pointer bg-primary10"
       onClick={onclickCard}
     >
       <Image
@@ -43,4 +43,3 @@ export const Card = ({
     </div>
   );
 };
-//gradient-to-tl from-primary/50 to-accent/50
