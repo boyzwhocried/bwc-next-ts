@@ -37,7 +37,7 @@ export default function RootLayout({
         <div className="noisetexture-overlay" />
         <Providers>
           <NavBar />
-          <div className="flex-col max-w-screen-xl mx-auto p-4">
+          <div className="flex flex-col max-w-screen-xl mx-auto p-4 gap-4">
             {children}
             <ThemeSwitch />
             <Footer />

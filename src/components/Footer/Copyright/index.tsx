@@ -1,7 +1,5 @@
 function Copyright() {
-    return (
-      <p className="flex text-xs justify-center">© • 2023 • boyzwhocried</p>
-    )
-  }
-  
-  export default Copyright
+  return <p className="text-xs flex justify-center">© 2023 boyzwhocried</p>;
+}
+
+export default Copyright;

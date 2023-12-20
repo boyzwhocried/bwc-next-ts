@@ -14,18 +14,15 @@ function MadeWith() {
             href={tech.link}
           >
             <div
-              className={`p-1 hover:bg-text/25 rounded-full scale-${
+              className={`p-1 rounded-full hover:bg-text/25 transform scale-${
                 tech.scale * 100
               }`}
             >
               <Image
                 src={tech.logoSrc}
-                className={`w-7 h-7`}
+                className="w-7 h-7"
                 alt={`${tech.name} logo`}
-                loading="lazy"
-                style={{
-                  filter: `${tech.filter}`,
-                }}
+                style={{ filter: `${tech.filter}` }}
               />
             </div>
           </a>

@@ -1,14 +1,14 @@
 import Copyright from "./Copyright";
 import MadeWith from "./MadeWith";
+import MiniPlayer from "./MiniPlayer";
 import Socials from "./Socials";
-
 
 function Footer() {
   return (
-    <footer className="flex flex-col gap-4 max-w-screen-xl justify-center">
+    <footer className="max-w-screen-xl flex flex-col justify-center gap-4">
       <div className="flex flex-col sm:flex-row gap-4 justify-between">
-        <div className="flex flex-col items-center sm:items-start">
-          {/* <MiniPlayer /> */}
+        <div className="flex flex-col sm:flex-row items-center sm:items-start">
+          <MiniPlayer />
         </div>
         <div className="flex flex-col items-center">
           <Socials />

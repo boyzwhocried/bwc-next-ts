@@ -49,10 +49,7 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-background bg-opacity-50 overflow-y-auto z-50">
-      <div
-        ref={modalRef}
-        className="relative max-w-3xl w-full bg-background p-8 rounded-lg shadow-md m-8 max-h-[90vh] overflow-y-scroll"
-      >
+      <div className="relative max-w-3xl w-full m-8 p-8 bg-background rounded-lg shadow-md max-h-[90vh] overflow-y-scroll">
         <button
           className="absolute top-4 right-4 text-text"
           onClick={onClose}
@@ -76,12 +73,11 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         <h2 className="text-3xl font-bold mb-4">{project.projectName}</h2>
         <div className="relative aspect-w-16 aspect-h-9 mb-4">
           <Image
-            className=" object-cover object-center rounded aspect-video"
+            className="object-cover object-center rounded aspect-video"
             src={project.projectImages[currentImageIndex]}
             alt={`${project.projectName} Image ${currentImageIndex + 1}`}
             width={1000}
             height={1000}
-            // priority={true}
           />
           <button
             className="absolute top-1/2 transform -translate-y-1/2 left-4 text-text bg-primary rounded-full p-2 opacity-50"

@@ -30,16 +30,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         altImage={projectName}
         description={projectDescription}
         onclickCard={openModal}
-        maxHeightTW={"72"}
-        imagePriority={true}
+        maxHeightTW="72"
+        imagePriority={false}
       >
         <div className="mt-4">
-          <div className="text-xl font-semibold mb-2">Stacks</div>
+          <div className="font-semibold text-xl mb-2">Stacks</div>
           <div className="flex flex-wrap gap-2">
             {stack.slice(0, 5).map((tech, techIndex) => (
               <span
                 key={techIndex}
-                className="bg-primary50 rounded-md px-2 py-1 text-sm"
+                className="rounded-md bg-primary50 px-2 py-1 text-sm"
               >
                 {tech}
               </span>
