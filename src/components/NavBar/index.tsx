@@ -24,7 +24,7 @@ function NavBar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full backdrop-blur-sm ${
+      className={`fixed top-0 w-full backdrop-blur-sm z-20${
         isNavOpen ? "bg-background/75 " : ""
       }`}
     >

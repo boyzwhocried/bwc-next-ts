@@ -1,0 +1,405 @@
+/* xs screen size */
+.text-cr-xs {
+  font-size: 0.5625rem; /* 8px */
+  line-height: 0.6875rem; /* 8px */
+}
+
+.text-cr-sm {
+  font-size: 0.6875rem; /* 10px */
+  line-height: 0.9375rem; /* 12px */
+}
+
+.text-cr-base {
+  font-size: 0.8125rem; /* 12px */
+  line-height: 1.0625rem; /* 16px */
+}
+
+.text-cr-lg {
+  font-size: 0.9375rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+}
+
+.text-cr-xl {
+  font-size: 1.0625rem; /* 16px */
+  line-height: 1.4375rem; /* 24px */
+}
+
+.text-cr-2xl {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.4375rem; /* 24px */
+}
+
+.text-cr-3xl {
+  font-size: 1.3125rem; /* 20px */
+  line-height: 1.6875rem; /* 28px */
+}
+
+.text-cr-4xl {
+  font-size: 1.625rem; /* 26px */
+  line-height: 1.875rem; /* 32px */
+}
+
+.text-cr-5xl {
+  font-size: 2.0625rem; /* 32px */
+  line-height: 2.1875rem; /* 36px */
+}
+
+.text-cr-6xl {
+  font-size: 2.8125rem; /* 44px */
+  line-height: 1;
+}
+
+.text-cr-7xl {
+  font-size: 3.375rem; /* 56px */
+  line-height: 1;
+}
+
+.text-cr-8xl {
+  font-size: 4.5rem; /* 72px */
+  line-height: 1;
+}
+
+.text-cr-9xl {
+  font-size: 5.625rem; /* 92px */
+  line-height: 1;
+}
+
+@media (min-width: 640px) {
+  /* sm screen size */
+  .text-cr-xs {
+    font-size: 0.625rem; /* 10px */
+    line-height: 0.75rem; /* 12px */
+  }
+
+  .text-cr-sm {
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem; /* 16px */
+  }
+
+  .text-cr-base {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+  }
+
+  .text-cr-lg {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+
+  .text-cr-xl {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  .text-cr-2xl {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  .text-cr-3xl {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+  }
+
+  .text-cr-4xl {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+  }
+
+  .text-cr-5xl {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+  }
+
+  .text-cr-6xl {
+    font-size: 3rem; /* 48px */
+    line-height: 1;
+  }
+
+  .text-cr-7xl {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1;
+  }
+
+  .text-cr-8xl {
+    font-size: 4.5rem; /* 72px */
+    line-height: 1;
+  }
+
+  .text-cr-9xl {
+    font-size: 6rem; /* 96px */
+    line-height: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  /* md screen size */
+  .text-cr-xs {
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem; /* 16px */
+  }
+
+  .text-cr-sm {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+  }
+
+  .text-cr-base {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+
+  .text-cr-lg {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  .text-cr-xl {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  .text-cr-2xl {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+  }
+
+  .text-cr-3xl {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+  }
+
+  .text-cr-4xl {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+  }
+
+  .text-cr-5xl {
+    font-size: 3rem; /* 48px */
+    line-height: 1;
+  }
+
+  .text-cr-6xl {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1;
+  }
+
+  .text-cr-7xl {
+    font-size: 4.5rem; /* 72px */
+    line-height: 1;
+  }
+
+  .text-cr-8xl {
+    font-size: 6rem; /* 96px */
+    line-height: 1;
+  }
+
+  .text-cr-9xl {
+    font-size: 8rem; /* 128px */
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* lg screen size */
+  .text-cr-xs {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+  }
+
+  .text-cr-sm {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+
+  .text-cr-base {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  .text-cr-lg {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  .text-cr-xl {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+  }
+
+  .text-cr-2xl {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+  }
+
+  .text-cr-3xl {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+  }
+
+  .text-cr-4xl {
+    font-size: 3rem; /* 48px */
+    line-height: 1;
+  }
+
+  .text-cr-5xl {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1;
+  }
+
+  .text-cr-6xl {
+    font-size: 4.5rem; /* 72px */
+    line-height: 1;
+  }
+
+  .text-cr-7xl {
+    font-size: 6rem; /* 96px */
+    line-height: 1;
+  }
+
+  .text-cr-8xl {
+    font-size: 8rem; /* 128px */
+    line-height: 1;
+  }
+
+  .text-cr-9xl {
+    font-size: 10rem; /* 160px */
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1280px) {
+  /* xl screen size */
+  .text-cr-xs {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+
+  .text-cr-sm {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  .text-cr-base {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  .text-cr-lg {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+  }
+
+  .text-cr-xl {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+  }
+
+  .text-cr-2xl {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+  }
+
+  .text-cr-3xl {
+    font-size: 3rem; /* 48px */
+    line-height: 1;
+  }
+
+  .text-cr-4xl {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1;
+  }
+
+  .text-cr-5xl {
+    font-size: 4.5rem; /* 72px */
+    line-height: 1;
+  }
+
+  .text-cr-6xl {
+    font-size: 6rem; /* 96px */
+    line-height: 1;
+  }
+
+  .text-cr-7xl {
+    font-size: 8rem; /* 128px */
+    line-height: 1;
+  }
+
+  .text-cr-8xl {
+    font-size: 10rem; /* 160px */
+    line-height: 1;
+  }
+
+  .text-cr-9xl {
+    font-size: 12rem; /* 192px */
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1536px) {
+  /* 2xl screen size */
+  .text-cr-xs {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  .text-cr-sm {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  .text-cr-base {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+  }
+
+  .text-cr-lg {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+  }
+
+  .text-cr-xl {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+  }
+
+  .text-cr-2xl {
+    font-size: 3rem; /* 48px */
+    line-height: 1;
+  }
+
+  .text-cr-3xl {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1;
+  }
+
+  .text-cr-4xl {
+    font-size: 4.5rem; /* 72px */
+    line-height: 1;
+  }
+
+  .text-cr-5xl {
+    font-size: 6rem; /* 96px */
+    line-height: 1;
+  }
+
+  .text-cr-6xl {
+    font-size: 8rem; /* 128px */
+    line-height: 1;
+  }
+
+  .text-cr-7xl {
+    font-size: 10rem; /* 160px */
+    line-height: 1;
+  }
+
+  .text-cr-8xl {
+    font-size: 12rem; /* 192px */
+    line-height: 1;
+  }
+
+  .text-cr-9xl {
+    font-size: 14.4rem; /* 230.4px */
+    line-height: 1;
+  }
+}
