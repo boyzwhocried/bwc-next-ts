@@ -1,4 +1,4 @@
-import { UnderlineLink } from "@/components/Others/UnderlineLink";
+import { UnderlineLink } from "@/components/others/UnderlineLink";
 import socialLinks from "./SocialLinksConst";
 
 function Socials() {
@@ -7,7 +7,12 @@ function Socials() {
       <span className="font-semibold text-xl">me elsewhere:</span>
       <div className="flex flex-col items-center sm:items-start">
         {socialLinks.map((link, index) => (
-          <UnderlineLink key={index} href={link.href} text={link.text} indexKey={index} />
+          <UnderlineLink
+            key={index}
+            href={link.href}
+            text={link.text}
+            indexKey={index}
+          />
         ))}
       </div>
     </div>

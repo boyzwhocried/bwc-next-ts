@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import ProjectDetailModal from "./ProjectDetailModal";
-import { Card } from "@/components/Others/Card";
+import { Card } from "@/components/others/Card";
 
 interface ProjectCardProps {
   projectName: string;
