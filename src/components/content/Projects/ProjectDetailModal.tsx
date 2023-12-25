@@ -16,24 +16,8 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
   project,
   onClose,
 }) => {
-  const modalRef = useRef<HTMLDivElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
-        onClose();
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [onClose]);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const handleNextImage = () => {
     setCurrentImageIndex(
@@ -47,9 +31,30 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
     );
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        onClose();
+      }
+    };
+    // Attach event listener when the component mounts
+    document.addEventListener("click", handleClickOutside);
+
+    // Remove event listener when the component unmounts
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [onClose]); // Empty dependency array ensures the effect runs only once on mount
+
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-background bg-opacity-50 overflow-y-auto z-50">
-      <div className="relative max-w-3xl w-full m-8 p-8 bg-background rounded-lg shadow-md max-h-[90vh] overflow-y-scroll">
+      <div
+        ref={modalRef}
+        className="relative max-w-3xl w-full m-8 p-8 bg-background rounded-lg shadow-md max-h-[90vh] overflow-y-scroll"
+      >
         <button
           className="absolute top-4 right-4 text-text"
           onClick={onClose}
