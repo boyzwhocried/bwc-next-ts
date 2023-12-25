@@ -68,7 +68,7 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           {project.projectImages.map((projectImg, index) => (
             <div key={index}>
               <Image
-                className="object-cover object-center aspect-video"
+                className="object-cover object-center sm:aspect-video aspect-square"
                 src={projectImg}
                 alt={`${project.projectName} Image ${index + 1}`}
                 width={1000}
