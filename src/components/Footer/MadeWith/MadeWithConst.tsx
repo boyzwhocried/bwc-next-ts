@@ -1,16 +1,8 @@
-import reactLogo from "/public/assets/icon/react.svg";
 import nextjsLogo from "/public/assets/icon/next-js.svg";
 import tailwindLogo from "/public/assets/icon/tailwind.svg";
 import framermotionLogo from "/public/assets/icon/framer-motion.svg";
 
 const technologies = [
-  {
-    name: "React",
-    logoSrc: reactLogo,
-    link: "https://react.dev/",
-    scale: 1,
-    filter: "",
-  },
   {
     name: "NextJS",
     logoSrc: nextjsLogo,
