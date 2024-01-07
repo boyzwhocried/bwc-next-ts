@@ -2,7 +2,7 @@ import axios from "axios";
 import GetAccessToken from "./getAccessToken";
 
 const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
-const clientSecret = process.env.NEXT_PUBLIC_CLIENT_SECRET;
+const clientSecret = process.env.SECRET;
 
 export default async function GetNewPlaylistData(playlistId: string) {
   try {

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import HeroImage from "/public/assets/image/hero/hero.webp";
+import { Reveal } from "@/components/others/RevealAnimation";
 
 export default function AboutMe() {
   return (
@@ -15,15 +16,22 @@ export default function AboutMe() {
           width={1000}
         />
         <div className="flex flex-col justify-center gap-2">
-          <h1 className="text-8xl md:text-9xl italic text-accent">about me</h1>
-          <p className="text-lg">
-            Hey, my name is Verrel Al Syoumi, and I use `boyzwhocried` as my
-            nickname across social media. I`m a freshly graduated computer
-            science student from Indonesia, with a growing interest in
-            front-end web development and design. I`m also passionate about
-            music, photography, arts, and technologies, and I`m always curious
-            to learn more when it comes to new technologies and creative coding.
-          </p>
+          <Reveal>
+            <h1 className="flex w-min text-8xl md:text-9xl italic text-accent">
+              about me
+            </h1>
+          </Reveal>
+          <Reveal>
+            <p className="text-lg">
+              Hey, my name is Verrel Al Syoumi, and I use `boyzwhocried` as my
+              nickname across social media. I`m a freshly graduated computer
+              science student from Indonesia, with a growing interest in
+              front-end web development and design. I`m also passionate about
+              music, photography, arts, and technologies, and I`m always curious
+              to learn more when it comes to new technologies and creative
+              coding.
+            </p>
+          </Reveal>
         </div>
       </div>
     </section>
