@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/others/RevealAnimation";
+import { Reveal } from "@/components/RevealAnimation";
 
 export default function AcademicJourney() {
   return (
@@ -22,8 +22,8 @@ export default function AcademicJourney() {
           management.
         </p>
         <p>
-          I`ve also completed various courses and certifications in Flutter, Dart,
-          Strategic Management, Statistics, Probability, and English.
+          I`ve also completed various courses and certifications in Flutter,
+          Dart, Strategic Management, Statistics, Probability, and English.
         </p>
       </Reveal>
     </div>

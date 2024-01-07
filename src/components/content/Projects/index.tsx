@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/others/RevealAnimation";
+import { Reveal } from "@/components/RevealAnimation";
 import ProjectCard from "./ProjectCard";
 import projectsData from "./ProjectDataConst";
 
@@ -10,17 +10,17 @@ function Projects() {
           recent projects
         </h1>
       </Reveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 m-4">
-          {projectsData.map((project, index) => (
-            <ProjectCard
-              key={index}
-              projectName={project.title}
-              projectImages={project.image}
-              projectDescription={project.description}
-              stack={project.stack}
-            />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 m-4">
+        {projectsData.map((project, index) => (
+          <ProjectCard
+            key={index}
+            projectName={project.title}
+            projectImages={project.image}
+            projectDescription={project.description}
+            stack={project.stack}
+          />
+        ))}
+      </div>
     </div>
   );
 }

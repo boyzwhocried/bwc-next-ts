@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CgMenu, CgClose } from "react-icons/cg";
-import UnderlineLink from "../others/UnderlineLink";
+import UnderlineLink from "../UnderlineLink";
 
 const navigation = [
   {
