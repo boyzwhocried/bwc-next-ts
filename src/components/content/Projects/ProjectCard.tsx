@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import ProjectDetailModal from "./ProjectDetailModal";
-import { Card } from "@/components/Others/Card";
+import { Reveal } from "@/components/others/RevealAnimation";
+import { Card } from "@/components/others/Card";
 
 interface ProjectCardProps {
   projectName: string;
@@ -24,29 +25,31 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <>
-      <Card
-        title={projectName}
-        image={projectImages[0]}
-        altImage={projectName}
-        description={projectDescription}
-        onclickCard={openModal}
-        maxHeightTW="72"
-        imagePriority={false}
-      >
-        <div className="mt-4">
-          <div className="font-semibold text-xl mb-2">Stacks</div>
-          <div className="flex flex-wrap gap-2">
-            {stack.slice(0, 5).map((tech, techIndex) => (
-              <span
-                key={techIndex}
-                className="rounded-md bg-primary50 px-2 py-1 text-sm"
-              >
-                {tech}
-              </span>
-            ))}
+      <Reveal>
+        <Card
+          title={projectName}
+          image={projectImages[0]}
+          altImage={projectName}
+          description={projectDescription}
+          onclickCard={openModal}
+          maxHeightTW="72"
+          imagePriority={false}
+        >
+          <div className="mt-4">
+            <div className="font-semibold text-xl mb-2">Stacks</div>
+            <div className="flex flex-wrap gap-2">
+              {stack.slice(0, 5).map((tech, techIndex) => (
+                <span
+                  key={techIndex}
+                  className="rounded-md bg-primary50 px-2 py-1 text-sm"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-      </Card>
+        </Card>
+      </Reveal>
       {isModalOpen && (
         <ProjectDetailModal
           project={{ projectName, projectImages, projectDescription, stack }}

@@ -18,3 +18,7 @@ export const UnderlineLink = ({ indexKey, href, text }: UnderlineLinkProps) => {
     </a>
   );
 };
+
+
+
+export default UnderlineLink
