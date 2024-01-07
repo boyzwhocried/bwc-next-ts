@@ -1,4 +1,4 @@
-import UnderlineLink from "@/components/UnderlineLink";
+import UnderlineLink from "@/components/others/UnderlineLink";
 import socialLinks from "./SocialLinksConst";
 
 function Socials() {

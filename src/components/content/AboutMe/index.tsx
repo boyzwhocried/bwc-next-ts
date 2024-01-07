@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import HeroImage from "/public/assets/image/hero/hero.webp";
-import { Reveal } from "@/components/RevealAnimation";
+import { Reveal } from "@/components/others/RevealAnimation";
 
 export default function AboutMe() {
   return (

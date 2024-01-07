@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import ProjectDetailModal from "./ProjectDetailModal";
-import { Reveal } from "@/components/RevealAnimation";
-import { Card } from "@/components/Card";
+import { Reveal } from "@/components/others/RevealAnimation";
+import { Card } from "@/components/others/Card";
 
 interface ProjectCardProps {
   projectName: string;

@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/RevealAnimation";
+import { Reveal } from "@/components/others/RevealAnimation";
 import ProjectCard from "./ProjectCard";
 import projectsData from "./ProjectDataConst";
 

@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/RevealAnimation";
+import { Reveal } from "@/components/others/RevealAnimation";
 
 export default function AcademicJourney() {
   return (
