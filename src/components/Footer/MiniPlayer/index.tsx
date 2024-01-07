@@ -40,16 +40,22 @@ function MiniPlayer() {
 
   return (
     <div>
-      {playlistData ? (
+      {playlistData && (
         <a
           className="flex w-fit p-1 pr-6 gap-2 items-center bg-gradient-to-r from-primary to-accent backdrop-blur-sm shadow-xl rounded-full sm:hover:outline outline-1"
           target="_blank"
           rel="noopener noreferrer"
-          href={playlistData.tracks.items[randomSongIndex || 0].track.external_urls.spotify}
+          href={
+            playlistData.tracks.items[randomSongIndex || 0].track.external_urls
+              .spotify
+          }
         >
           <Image
             className="rounded-full animate-spin-extra-slow h-16 w-16"
-            src={playlistData.tracks.items[randomSongIndex || 0].track.album.images[2].url}
+            src={
+              playlistData.tracks.items[randomSongIndex || 0].track.album
+                .images[2].url
+            }
             alt="Album Cover"
             width={1000}
             height={1000}
@@ -58,13 +64,15 @@ function MiniPlayer() {
             <h1 className="text-xs">on repeat:</h1>
             <p className="line-clamp-2 max-w-[270px]">
               {playlistData.tracks.items[randomSongIndex || 0].track.name} by{" "}
-              {playlistData.tracks.items[randomSongIndex || 0].track.album.artists
+              {playlistData.tracks.items[
+                randomSongIndex || 0
+              ].track.album.artists
                 .map((artist) => artist.name)
                 .join(", ")}
             </p>
           </div>
         </a>
-      ) : null}
+      )}
     </div>
   );
 }
