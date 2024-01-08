@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async function GetAccessToken(clientId:string, clientSecret:string) {
+export default async function GetNewAccessToken(clientId:string, clientSecret:string) {
     try {
         const authHeader = `Basic ${btoa(`${clientId}:${clientSecret}`)}`;
         const authResponse = await axios.post(
