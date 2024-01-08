@@ -5,9 +5,9 @@ import Projects from "@/components/content/Projects";
 export default function Page() {
   return (
     <>
-        <AboutMe />
-        <AcademicJourney />
-        <Projects/>
+      <AboutMe />
+      <AcademicJourney />
+      <Projects />
     </>
   );
 }
