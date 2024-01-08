@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GetSongData from "@/app/api/spotify/songData/route";
+import GetSongData from "@/app/api/spotify/songData";
 
 interface Track {
   name: string;

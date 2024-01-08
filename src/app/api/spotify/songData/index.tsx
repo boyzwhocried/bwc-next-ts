@@ -1,4 +1,4 @@
-import GetPlaylistData from "../playlistData/route";
+import GetPlaylistData from "../playlistData";
 
 interface Track {
   name: string;

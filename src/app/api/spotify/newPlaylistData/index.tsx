@@ -1,12 +1,15 @@
 import axios from "axios";
-import GetNewAccessToken from "../newAccessToken/route";
+import GetNewAccessToken from "../newAccessToken";
 
 const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
 const clientSecret = process.env.SECRET;
 
 export default async function GetNewPlaylistData(playlistId: string) {
   try {
-    const accessToken = await GetNewAccessToken(clientId as string, clientSecret as string);
+    const accessToken = await GetNewAccessToken(
+      clientId as string,
+      clientSecret as string
+    );
     const response = await axios.get(
       `https://api.spotify.com/v1/playlists/${playlistId}`,
       {
