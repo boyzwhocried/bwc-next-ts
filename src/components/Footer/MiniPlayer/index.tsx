@@ -11,7 +11,7 @@ interface Track {
 }
 
 async function MiniPlayer() {
-  const songData = await GetSongData();
+  const songData = await GetSongData(new Date().getTime());
 
   return (
     <div>
