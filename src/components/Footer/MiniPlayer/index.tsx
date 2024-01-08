@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GetSongData from "@/app/api/spotify/songData";
+import GetPlaylistData from "@/app/api/spotify/playlistData";
 
 interface Track {
   name: string;
@@ -11,7 +11,13 @@ interface Track {
 }
 
 async function MiniPlayer() {
-  const songData = await GetSongData(new Date().getTime());
+  const playlistData = await GetPlaylistData();
+  const currentTimestamp = new Date().getTime();
+  const randomSongIndex = Math.floor(
+    currentTimestamp % playlistData.tracks.items.length
+  );
+
+  const songData = playlistData.tracks.items[randomSongIndex || 0];
 
   return (
     <div>
