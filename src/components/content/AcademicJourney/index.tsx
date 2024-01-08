@@ -2,7 +2,7 @@ import { Reveal } from "@/components/others/RevealAnimation";
 
 export default function AcademicJourney() {
   return (
-    <div className="text-lg flex min-h-screen flex-col justify-center gap-1">
+    <div className="text-lg flex min-h-screen flex-col justify-center gap-1 items-center">
       <Reveal>
         <h1 className="m-3 text-7xl md:text-8xl italic text-center text-accent flex justify-center">
           academic journey
