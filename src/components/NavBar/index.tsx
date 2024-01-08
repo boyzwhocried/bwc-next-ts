@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CgMenu, CgClose } from "react-icons/cg";
-import { UnderlineLink } from "../Others/UnderlineLink";
+import UnderlineLink from "../others/UnderlineLink";
 
 const navigation = [
   {
@@ -24,8 +24,8 @@ function NavBar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full backdrop-blur-sm z-20${
-        isNavOpen ? "bg-background/75 " : ""
+      className={`fixed top-0 w-full backdrop-blur-sm z-20 ${
+        isNavOpen ? "bg-background/75" : ""
       }`}
     >
       <div className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
