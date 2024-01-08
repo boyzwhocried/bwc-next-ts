@@ -1,23 +1,16 @@
 import GetPlaylistData from "../playlistData";
 
-interface Track {
-  name: string;
-  album: {
-    artists: { name: string }[];
-    images: { url: string }[];
-  };
-  external_urls: { spotify: string };
-}
-
-export default async function GetSongData() {
+export default async function GetSongData(currentTimestamp: number) {
   try {
     const data = await GetPlaylistData();
     const playlistData = data;
+ 
     const randomSongIndex = Math.floor(
-      Math.random() * data.tracks.items.length
+      currentTimestamp % data.tracks.items.length
     );
 
-    return playlistData.tracks.items[randomSongIndex || 0];
+    const songData = playlistData.tracks.items[randomSongIndex || 0];
+    return songData;
   } catch (error) {
     console.error("Error fetching playlist data:", error);
   }
