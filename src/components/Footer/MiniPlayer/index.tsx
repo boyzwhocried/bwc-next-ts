@@ -1,10 +1,13 @@
 "use client";
 
-import { FaMusic } from "react-icons/fa";
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import GetPlaylistData from "@/hooks/spotify/playlist/getPlaylistData";
+import { useEffect, useState } from "react";
 
+interface PlaylistData {
+  tracks: {
+    items: { track: Track }[];
+  };
+}
 interface Track {
   name: string;
   album: {
@@ -14,19 +17,14 @@ interface Track {
   external_urls: { spotify: string };
 }
 
-interface PlaylistData {
-  tracks: {
-    items: { track: Track }[];
-  };
-}
-
 function MiniPlayer() {
   const [playlistData, setPlaylistData] = useState<PlaylistData | null>(null);
   const [randomSongIndex, setRandomSongIndex] = useState<number | null>(0);
 
   const fetchPlaylistData = async () => {
     try {
-      const data = await GetPlaylistData();
+      const res = await fetch("/api/spotify/playlist-data", { method: "GET" });
+      const data = await res.json();
       setPlaylistData(data);
       setRandomSongIndex(Math.floor(Math.random() * data.tracks.items.length));
     } catch (error) {
