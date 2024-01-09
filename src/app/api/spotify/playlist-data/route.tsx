@@ -1,11 +1,12 @@
 import fs from "fs/promises";
 import path from "path";
-import GetNewPlaylistData from "../newPlaylistData";
+import { GetNewPlaylistData } from "../new-playlist-data/route";
+import { NextResponse } from "next/server";
 
 const onRepeatPlaylistId = process.env.NEXT_PUBLIC_ON_REPEAT_PLAYLIST_ID;
 const cacheFilePath = path.resolve(".cache/cachedPlaylistData.json");
 
-export default async function GetPlaylistData() {
+export async function GetPlaylistData() {
   try {
     // Check if the cache file exists
     const cacheFileContent = await fs.readFile(cacheFilePath, "utf-8");
@@ -43,4 +44,10 @@ export default async function GetPlaylistData() {
   } catch (error) {
     console.error("Error fetching data:", error);
   }
+}
+
+export async function GET() {
+  const playlistData = await GetPlaylistData();
+  const res = playlistData;
+  return NextResponse.json(res);
 }

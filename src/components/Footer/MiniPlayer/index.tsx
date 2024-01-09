@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GetPlaylistData from "@/app/api/spotify/playlistData";
+// import { useEffect, useState } from "react";
 
 interface Track {
   name: string;
@@ -10,14 +10,31 @@ interface Track {
   external_urls: { spotify: string };
 }
 
-async function MiniPlayer() {
-  const playlistData = await GetPlaylistData();
-  const currentTimestamp = new Date().getTime();
-  const randomSongIndex = Math.floor(
-    currentTimestamp % playlistData.tracks.items.length
-  );
+interface SongDataResponse {
+  track: Track;
+}
 
-  const songData = playlistData.tracks.items[randomSongIndex || 0];
+async function MiniPlayer() {
+  const response = await fetch("/api/spotify/song-data", { method: "GET" });
+  const songData: SongDataResponse | undefined = await response.json();
+
+  // const [songData, setSongData] = useState<SongDataResponse | undefined>(
+  //   undefined
+  // );
+
+  // const fetchSongData = async () => {
+  //   try {
+  //     const response = await fetch("/api/spotify/song-data", { method: "GET" });
+  //     const songData: SongDataResponse | undefined = await response.json();
+  //     setSongData(songData);
+  //   } catch (error) {
+  //     console.error("Error fetching song data:", error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchSongData();
+  // }, []);
 
   return (
     <div>
@@ -40,7 +57,7 @@ async function MiniPlayer() {
             <p className="line-clamp-2 max-w-[270px]">
               {songData.track.name} by{" "}
               {songData.track.album.artists
-                .map((artist: Track) => artist.name)
+                .map((artist) => artist.name)
                 .join(", ")}
             </p>
           </div>
