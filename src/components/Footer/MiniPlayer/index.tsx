@@ -15,7 +15,7 @@ interface SongDataResponse {
 }
 
 async function MiniPlayer() {
-  const response = await fetch("/api/spotify/song-data", { method: "GET" });
+  const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}api/spotify/song-data`, { method: "GET" });
   const songData: SongDataResponse | undefined = await response.json();
 
   // const [songData, setSongData] = useState<SongDataResponse | undefined>(
