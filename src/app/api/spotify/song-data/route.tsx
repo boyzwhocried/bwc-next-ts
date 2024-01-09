@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { GetPlaylistData } from "../playlist-data/route";
+import { GetPlaylistData } from "../playlist-data";
 
 export async function GET() {
   const playlistData = await GetPlaylistData();
