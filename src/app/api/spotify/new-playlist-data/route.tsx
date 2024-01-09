@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GetNewAccessToken } from "../new-access-token/route";
+import { GetNewAccessToken } from "../new-access-token";
 import { NextResponse } from "next/server";
 
 const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
