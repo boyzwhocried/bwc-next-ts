@@ -1,5 +1,7 @@
+'use client'
+
 import Image from "next/image";
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Track {
   name: string;
@@ -14,27 +16,27 @@ interface SongDataResponse {
   track: Track;
 }
 
-async function MiniPlayer() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}api/spotify/song-data`, { method: "GET" });
-  const songData: SongDataResponse | undefined = await response.json();
+ function MiniPlayer() {
+  // const response = await fetch(`/api/spotify/song-data`, { method: "GET" });
+  // const songData: SongDataResponse | undefined = await response.json();
 
-  // const [songData, setSongData] = useState<SongDataResponse | undefined>(
-  //   undefined
-  // );
+  const [songData, setSongData] = useState<SongDataResponse | undefined>(
+    undefined
+  );
 
-  // const fetchSongData = async () => {
-  //   try {
-  //     const response = await fetch("/api/spotify/song-data", { method: "GET" });
-  //     const songData: SongDataResponse | undefined = await response.json();
-  //     setSongData(songData);
-  //   } catch (error) {
-  //     console.error("Error fetching song data:", error);
-  //   }
-  // };
+  const fetchSongData = async () => {
+    try {
+      const response = await fetch("/api/spotify/song-data", { method: "GET" });
+      const songData: SongDataResponse | undefined = await response.json();
+      setSongData(songData);
+    } catch (error) {
+      console.error("Error fetching song data:", error);
+    }
+  };
 
-  // useEffect(() => {
-  //   fetchSongData();
-  // }, []);
+  useEffect(() => {
+    fetchSongData();
+  }, []);
 
   return (
     <div>
