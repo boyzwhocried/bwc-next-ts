@@ -1,10 +1,10 @@
 import axios from "axios";
-import GetNewAccessToken from "../newAccessToken";
+import { GetNewAccessToken } from "../new-access-token";
 
 const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
 const clientSecret = process.env.SECRET;
 
-export default async function GetNewPlaylistData(playlistId: string) {
+export async function GetNewPlaylistData(playlistId: string) {
   try {
     const accessToken = await GetNewAccessToken(
       clientId as string,
