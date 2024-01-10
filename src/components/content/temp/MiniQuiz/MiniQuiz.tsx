@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { FC, useState, useEffect, useCallback } from "react";
 
+import anjay from "/public/assets/image/sandbox/quiz/others/anjay-snow.gif";
+
 interface Option {
   text: string;
   image: string;
@@ -62,7 +64,12 @@ const Quiz: FC<QuizProps> = ({ questions }) => {
     <>
       {showScore ? (
         <div className="text-center">
-          <div className="text-2xl font-bold mb-4">Quiz Completed!</div>
+          <div className="text-2xl font-bold mb-4">
+            Horray Quiz Completed!🎉🎉
+          </div>
+          <div className="flex justify-center">
+            <Image className="object-fill object-center  aspect-square" src={anjay} alt={"anjay"} height={300}/>
+          </div>
           <div className="text-xl mb-4">
             You scored {score} out of {questions.length}
           </div>
@@ -75,7 +82,7 @@ const Quiz: FC<QuizProps> = ({ questions }) => {
           </button>
         </div>
       ) : (
-        <div className="bg-primary p-8 rounded shadow-md">
+        <div className="bg-primary10 p-8 rounded shadow-md my-24">
           <div className="text-center mb-8">
             <div className="text-xl font-bold mb-4">
               Question {currentQuestion + 1} of {questions.length}
@@ -84,9 +91,11 @@ const Quiz: FC<QuizProps> = ({ questions }) => {
               {questions[currentQuestion].prompt.image && (
                 <div className="flex justify-center p-4">
                   <Image
-                    className="h-40"
+                    className="object-fill object-center sm:aspect-video aspect-square"
                     src={questions[currentQuestion].prompt.image}
                     alt={`${questions[currentQuestion].prompt.image}`}
+                    width={800}
+                    height={800}
                   />
                 </div>
               )}
@@ -97,12 +106,20 @@ const Quiz: FC<QuizProps> = ({ questions }) => {
             {shuffledOptions.map((option, index) => (
               <button
                 key={index}
-                className="bg-background/50 hover:bg-background/75 py-2 px-4 rounded"
+                className="bg-primary50 hover:bg-primary50/75 py-2 px-4 rounded"
                 onClick={() => handleAnswerClick(index)}
                 aria-label="Answer"
               >
                 <div>
-                  {option.image}
+                  {option.image && (
+                    <Image
+                      className="object-fill object-center sm:aspect-video aspect-square"
+                      src={option.image}
+                      alt={option.text}
+                      width={1000}
+                      height={1000}
+                    />
+                  )}
                   {option.text}
                 </div>
               </button>
