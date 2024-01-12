@@ -1,12 +1,12 @@
-import q1 from "/public/assets/image/sandbox/quiz/1/color-blind.jpeg";
-import q2a2 from "/public/assets/image/sandbox/quiz/2/car-image.jpg";
-import q2a1 from "/public/assets/image/sandbox/quiz/2/cat-image.png";
-import q2a3 from "/public/assets/image/sandbox/quiz/2/random-image.png";
-import q2a4 from "/public/assets/image/sandbox/quiz/2/v1zi2a85.png";
-import q4a1 from "/public/assets/image/sandbox/quiz/4/y1x766iq.png";
-import q4a2 from "/public/assets/image/sandbox/quiz/4/m0o1ur0a.png";
-import q4a3 from "/public/assets/image/sandbox/quiz/4/p0bb0big.png";
-import q4a4 from "/public/assets/image/sandbox/quiz/4/xqog3udr.png";
+import q1 from "/public/assets/image/sandbox/quiz/1/q1.webp";
+import q2a1 from "/public/assets/image/sandbox/quiz/2/q2a1.webp";
+import q2a2 from "/public/assets/image/sandbox/quiz/2/q2a2.webp";
+import q2a3 from "/public/assets/image/sandbox/quiz/2/q2a3.webp";
+import q2a4 from "/public/assets/image/sandbox/quiz/2/q2a4.webp";
+import q4a1 from "/public/assets/image/sandbox/quiz/4/q4a1.webp";
+import q4a2 from "/public/assets/image/sandbox/quiz/4/q4a2.webp";
+import q4a3 from "/public/assets/image/sandbox/quiz/4/q4a3.webp";
+import q4a4 from "/public/assets/image/sandbox/quiz/4/q4a4.webp";
 
 const questions = [
   {
