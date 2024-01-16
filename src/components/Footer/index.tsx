@@ -5,7 +5,7 @@ import Socials from "./Socials";
 
 function Footer() {
   return (
-    <footer className="max-w-screen-xl flex flex-col justify-center gap-4">
+    <footer className="max-w-screen-2xl flex flex-col justify-center gap-4 p-4 mx-auto">
       <div className="flex flex-col sm:flex-row gap-4 justify-between">
         <div className="flex flex-col sm:flex-row items-center sm:items-start">
           <MiniPlayer />

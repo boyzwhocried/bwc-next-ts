@@ -6,12 +6,12 @@ import UnderlineLink from "../others/UnderlineLink";
 
 const navigation = [
   {
-    navigationName: "explore",
-    link: "",
+    navigationName: "home",
+    link: "/",
   },
   {
-    navigationName: "about",
-    link: "",
+    navigationName: "photos",
+    link: "/photos",
   },
 ];
 
@@ -28,7 +28,7 @@ function NavBar() {
         isNavOpen ? "bg-background/75" : ""
       }`}
     >
-      <div className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
+      <div className="max-w-screen-2xl mx-auto p-4 flex items-center justify-between">
         <a href="/" className="flex items-center">
           <span className="text-4xl sm:text-5xl font-bold bg-clip-text bg-gradient-to-r from-primary to-accent text-transparent">
             boyzwhocried
@@ -41,6 +41,7 @@ function NavBar() {
               href={nav.link}
               text={nav.navigationName}
               indexKey={index}
+              openNewTab={false}
             />
           ))}
         </div>
@@ -60,6 +61,7 @@ function NavBar() {
               href={nav.link}
               text={nav.navigationName}
               indexKey={index}
+              openNewTab={false}
             />
           ))}
         </div>

@@ -24,7 +24,7 @@ function ThemeModeToggle() {
   }
 
   return (
-    <div className="fixed bottom-0 right-0 px-4 py-4 justify-end sm:sticky sm:px-0 xl:fixed xl:px-4 flex z-10">
+    <div className="fixed bottom-0 right-0 px-4 py-4 justify-end sm:sticky xl:fixed xl:px-4 flex z-10">
       <button
         className={`rounded-full w-fit shadow-xl backdrop-blur-sm ${
           isDarkMode
