@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface UnderlineLinkProps {
   indexKey: number;
   href: string;
@@ -12,16 +14,15 @@ export const UnderlineLink = ({
   openNewTab = true,
 }: UnderlineLinkProps) => {
   return (
-    <a
+    <Link
       key={indexKey}
       target={openNewTab ? "_blank" : ""}
-      rel="noopener noreferrer"
       href={href}
       className="group hover:italic p-[6px]"
     >
       {text}
       <span className="block h-[1px] max-w-0 bg-text group-hover:max-w-full transition-all duration-500"></span>
-    </a>
+    </Link>
   );
 };
 
