@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import photo1 from "/public/assets/image/photos/000044.jpg";
+import photo1 from "/public/assets/image/photos/0000441.jpg";
 import photo2 from "/public/assets/image/photos/000165220036.jpg";
 import photo3 from "/public/assets/image/photos/000015990015.jpg";
 import photo4 from "/public/assets/image/photos/000015950036.jpg";
