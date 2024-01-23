@@ -94,13 +94,7 @@ const shuffleArray = (array: string[]) => {
   return array;
 };
 
-type Image = {
-  id: number;
-  imageSrc: string;
-  name: string;
-};
-
-export default function Page({ images }: { images: Image[] }) {
+export default function Page() {
   const shuffledPhotos = shuffleArray(photos);
 
   return (
