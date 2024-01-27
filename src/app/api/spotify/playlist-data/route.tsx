@@ -3,7 +3,7 @@ import path from "path";
 import { GetNewPlaylistData } from "../new-playlist-data";
 import { NextResponse } from "next/server";
 
-const onRepeatPlaylistId = process.env.NEXT_PUBLIC_ON_REPEAT_PLAYLIST_ID;
+const onRepeatPlaylistId = process.env.NEXT_PUBLIC_SPOTIFY_ON_REPEAT_PLAYLIST_ID;
 const cacheFilePath = path.resolve(".cache/cachedPlaylistData.json");
 
 export async function GET() {
