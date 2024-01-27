@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export async function GetNewAccessToken(
-  clientId: string,
-  clientSecret: string
-) {
+const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
+const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+
+async function GetNewAccessToken() {
   try {
     const authHeader = `Basic ${btoa(`${clientId}:${clientSecret}`)}`;
     const authResponse = await axios.post(
@@ -24,3 +24,4 @@ export async function GetNewAccessToken(
     throw new Error("Error obtaining access token");
   }
 }
+export const spotifyNewAccessToken = GetNewAccessToken();
