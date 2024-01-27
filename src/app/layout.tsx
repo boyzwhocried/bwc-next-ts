@@ -3,8 +3,8 @@ import { Poppins } from "next/font/google";
 import { Providers } from "./provider";
 import NavBar from "@/components/NavBar";
 import ThemeSwitch from "@/components/ThemeSwitch";
-import "./globals.css";
 import Footer from "@/components/Footer";
+import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -37,11 +37,9 @@ export default function RootLayout({
         <div className="noisetexture-overlay" />
         <Providers>
           <NavBar />
-          <div className="flex flex-col max-w-screen-xl mx-auto p-4 gap-4">
-            {children}
-            <ThemeSwitch />
-            <Footer />
-          </div>
+          {children}
+          <ThemeSwitch />
+          <Footer />
         </Providers>
       </body>
     </html>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import technologies from "./MadeWithConst";
+import Link from "next/link";
 
 function MadeWith() {
   return (
@@ -7,12 +8,7 @@ function MadeWith() {
       <h1 className="text-lg">made with:</h1>
       <div className="flex justify-center gap-2">
         {technologies.map((tech, index) => (
-          <a
-            key={index}
-            target="_blank"
-            rel="noopener noreferrer"
-            href={tech.link}
-          >
+          <Link key={index} target="_blank" href={tech.link}>
             <div
               className={`p-1 rounded-full hover:bg-text/25 transform scale-${
                 tech.scale * 100
@@ -25,7 +21,7 @@ function MadeWith() {
                 style={{ filter: `${tech.filter}` }}
               />
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
