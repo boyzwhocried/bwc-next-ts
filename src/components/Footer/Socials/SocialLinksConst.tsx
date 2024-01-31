@@ -21,7 +21,7 @@ const socialLinks = [
     },
     {
       text: "cv",
-      href: "https://resume.io/r/7yCEg6KQo",
+      href: "https://www.cakeresume.com/boyzwhocried",
     },
 ];
   
