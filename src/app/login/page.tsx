@@ -89,16 +89,15 @@ export default function Page() {
   if (user) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="bg-background shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
-          <h1 className="text-2xl font-semibold mb-4 text-center text-foreground">
+        <div className="bg-card shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
+          <h1 className="text-2xl font-semibold mb-4 text-center">
             Logged In
-            {/* Logged In as {user.email} */}
           </h1>
           <p className="mb-6 text-text text-center">
             Welcome back! You are now logged in.
           </p>
           <button
-            className="bg-primary hover:bg-primary/50 text-foreground font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+            className="bg-primary hover:bg-primary/50 py-2 px-4 rounded w-full"
             onClick={handleLogout}
           >
             Logout
@@ -110,20 +109,14 @@ export default function Page() {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="bg-background shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
+      <div className="bg-card shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
         <h1 className="text-2xl font-semibold mb-4 text-center text-foreground">
           Login
         </h1>
         <form>
           <div className="mb-4">
-            {/* <label
-              className="block text-text text-sm font-bold mb-2"
-              htmlFor="email"
-            >
-              Email
-            </label> */}
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-text leading-tight focus:outline-none focus:shadow-outline"
+              className="border rounded w-full py-2 px-3"
               id="email"
               type="email"
               placeholder="Email"
@@ -132,14 +125,8 @@ export default function Page() {
             />
           </div>
           <div className="mb-6">
-            {/* <label
-              className="block text-text text-sm font-bold mb-2"
-              htmlFor="password"
-            >
-              Password
-            </label> */}
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-text leading-tight focus:outline-none focus:shadow-outline"
+              className="border rounded w-full py-2 px-3"
               id="password"
               type="password"
               placeholder="Password"
@@ -149,14 +136,14 @@ export default function Page() {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-primary hover:bg-primary/50 text-foreground font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-primary hover:bg-primary/50 py-2 px-4 rounded"
               type="button"
               onClick={handleSignIn}
             >
               Sign In
             </button>
             <button
-              className="bg-primary10 hover:bg-primary10/50 text-foreground font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-primary10 hover:bg-primary10/50 py-2 px-4 rounded"
               type="button"
               onClick={handleSignUp}
             >
@@ -166,37 +153,5 @@ export default function Page() {
         </form>
       </div>
     </div>
-    // <div className="h-screen flex items-center justify-center p-6">
-    //   <div className="bg-primary50/50 p-8 rounded-lg shadow-md w-96">
-    //     <input
-    //       className="mb-4 w-full p-3 rounded-md border border-primary bg-primary/25 placeholder-primary/10 focus:outline-none focus:border-blue-500"
-    //       type="email"
-    //       name="email"
-    //       value={email}
-    //       onChange={(e) => setEmail(e.target.value)}
-    //       placeholder="Email"
-    //     />
-    //     <input
-    //       className="mb-4 w-full p-3 rounded-md border border-primary bg-primary/25 placeholder-primary/10 focus:outline-none focus:border-blue-500"
-    //       type="password"
-    //       name="password"
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //       placeholder="Password"
-    //     />
-    //     <button
-    //       className="w-full mb-4 p-3 rounded-md bg-accent hover:bg-accent/75 focus:outline-none"
-    //       onClick={handleSignUp}
-    //     >
-    //       Sign Up
-    //     </button>
-    //     <button
-    //       className="w-full p-3 rounded-md bg-primary10 hover:bg-primary10/75 focus:outline-none"
-    //       onClick={handleSignIn}
-    //     >
-    //       Sign In
-    //     </button>
-    //   </div>
-    // </div>
   );
 }

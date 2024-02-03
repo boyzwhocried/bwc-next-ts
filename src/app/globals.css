@@ -7,12 +7,19 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   --text: 173 40% 4%;
+  --text-alt: 173 40% 96%;
   --background: 180 33% 97%;
   --primary: 203 41% 67%;
   --primary10: 205.714 41% 97%;
   --primary50: 204.324 41% 82%;
   --secondary: 356 39% 93%;
   --accent: 22 41% 53%;
+  --card: 203 20% 80%;
+  --info: 207 100% 66%;
+  --success: 144 59% 49%;
+  --warning: 40 90% 63%;
+  --danger: 0 87% 63%;
+  --link: 207 100% 50%;
 }
 
 [data-theme="dark"] {
@@ -20,12 +27,19 @@
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
   --text: 173 40% 96%;
+  --text-alt: 173 40% 4%;
   --background: 180 33% 3%;
   --primary: 203 41% 33%;
   --primary10: 205.714 11% 12%;
   --primary50: 204.324 31% 24%;
   --secondary: 356 39% 7%;
   --accent: 22 41% 47%;
+  --card: 203 20% 20%;
+  --info: 207 100% 86%;
+  --success: 144 59% 69%;
+  --warning: 40 90% 83%;
+  --danger: 0 87% 83%;
+  --link: 207 100% 80%;
 }
 
 .noisetexture-overlay::before {
