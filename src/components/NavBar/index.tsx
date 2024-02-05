@@ -14,6 +14,10 @@ const navigation = [
     navigationName: "photograph",
     link: "/photograph",
   },
+  {
+    navigationName: "login",
+    link: "/auth/login",
+  },
 ];
 
 function NavBar() {
@@ -35,7 +39,7 @@ function NavBar() {
             boyzwhocried
           </span>
         </Link>
-        <div className="hidden sm:flex space-x-6">
+        <div className="hidden lg:flex space-x-6">
           {navigation.map((nav, index) => (
             <UnderlineLink
               key={index}
@@ -46,7 +50,7 @@ function NavBar() {
             />
           ))}
         </div>
-        <div className="sm:hidden flex items-center text-2xl cursor-pointer">
+        <div className="lg:hidden flex items-center text-2xl cursor-pointer">
           {isNavOpen ? (
             <CgClose onClick={toggleNav} />
           ) : (
@@ -56,7 +60,7 @@ function NavBar() {
       </div>
       {isNavOpen && (
         <div
-          className="sm:hidden p-4 flex flex-col items-end gap-3"
+          className="lg:hidden p-4 flex flex-col items-end gap-3"
           onClick={toggleNav}
         >
           {navigation.map((nav, index) => (

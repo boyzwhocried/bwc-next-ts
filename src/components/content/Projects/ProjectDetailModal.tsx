@@ -37,7 +37,7 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-background bg-opacity-50 overflow-y-auto z-50">
       <div
         ref={modalRef}
-        className="relative max-w-3xl w-full m-8 py-8 bg-background rounded-lg shadow-md max-h-[90vh] overflow-y-scroll"
+        className="relative max-w-3xl w-full m-8 py-8 bg-card rounded-lg shadow-md max-h-[90vh] overflow-y-scroll"
       >
         <button
           className="absolute top-4 right-4 text-text"
@@ -84,7 +84,7 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             {project.stack.map((tech, techIndex) => (
               <span
                 key={techIndex}
-                className="bg-primary rounded-md px-2 py-1 text-sm"
+                className="rounded bg-primary50 px-2 py-1 text-sm border border-text"
               >
                 {tech}
               </span>
