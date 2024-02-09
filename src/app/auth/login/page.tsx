@@ -3,8 +3,8 @@
 import Loading from "@/components/others/Loading";
 import { createBrowserClient } from "@supabase/ssr";
 import { Session, User } from "@supabase/supabase-js";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useRouter, useSearchParams, redirect } from "next/navigation";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { FaGithub, FaGoogle, FaSpotify } from "react-icons/fa";
 
 export default function Page() {
@@ -22,13 +22,21 @@ export default function Page() {
     setAuthError("");
   };
 
+  const clearForms = () => {
+    setEmail("");
+    setPassword("");
+  };
+
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const next = searchParams.get("next");
+
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     async function getUser() {
       const {
         data: { user },
@@ -37,11 +45,10 @@ export default function Page() {
         data: { session },
       } = await supabase.auth.getSession();
 
-      setSessionStatus(session)
+      setSessionStatus(session);
       setUser(user);
       setLoading(false);
     }
-
     getUser();
   }, [supabase.auth, user]);
 
@@ -49,19 +56,23 @@ export default function Page() {
   const [password, setPassword] = useState("");
 
   const handleSignUp = async () => {
+    setLoading(true);
     clearErrors();
     if (!email || !password) {
       setEmailError("Please enter both email and password.");
+      setLoading(false);
       return;
     }
 
     if (!validateEmail(email)) {
       setEmailError("Please enter a valid email address.");
+      setLoading(false);
       return;
     }
 
     if (password.length < 6) {
       setPasswordError("Password must be at least 6 characters long.");
+      setLoading(false);
       return;
     }
 
@@ -70,52 +81,52 @@ export default function Page() {
         email,
         password,
         options: {
-          emailRedirectTo: `${location.origin}/auth/callback`,
+          emailRedirectTo: `${location.origin}/auth/callback/signup`,
         },
       });
 
       if (error) {
+        setLoading(false);
         setAuthError(error.message);
         return;
       }
-
-      setSessionStatus(data.session);
-      setUser(data.user);   
+      router.replace(
+        `${location.origin}/auth/confirmation${next ? `?next=${next}` : "/"}`
+      );
       router.refresh();
     } catch (error) {
+      setLoading(false);
       setAuthError("An error occurred during sign up.");
     }
   };
 
   const handleSignIn = async () => {
+    setLoading(true);
     clearErrors();
-
     if (!email || !password) {
       setEmailError("Please enter both email and password.");
       return;
     }
-
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
-
       if (error) {
+        setLoading(false);
         setAuthError(error.message);
         return;
       }
-
-      setSessionStatus(data.session);
-      setUser(data.user);
+      setLoading(false);
+      router.replace(`${location.origin}${next ? `/${next}` : "/"}`);
       router.refresh();
     } catch (error) {
+      setLoading(false);
       setAuthError("Invalid email or password.");
     }
   };
   const handleLoginWithGoogle = async () => {
     clearErrors();
-
     try {
       let { data, error } = await supabase.auth.signInWithOAuth({
         provider: "google",
@@ -124,15 +135,15 @@ export default function Page() {
             access_type: "offline",
             prompt: "consent",
           },
-          redirectTo: `${location.origin}/auth/callback`,
+          redirectTo: `${location.origin}/auth/callback${
+            next ? `?next=${next}` : "/"
+          }`,
         },
       });
-
       if (error) {
         setAuthError(error.message);
         return;
       }
-
       // Handle successful login if needed
     } catch (error) {
       setAuthError("An error occurred during Google login.");
@@ -141,24 +152,19 @@ export default function Page() {
 
   const handleLoginWithGithub = async () => {
     clearErrors();
-
     try {
       let { data, error } = await supabase.auth.signInWithOAuth({
         provider: "github",
         options: {
-          queryParams: {
-            access_type: "offline",
-            prompt: "consent",
-          },
-          redirectTo: `${location.origin}/auth/callback`,
+          redirectTo: `${location.origin}/auth/callback${
+            next ? `?next=${next}` : "/"
+          }`,
         },
       });
-
       if (error) {
         setAuthError(error.message);
         return;
       }
-
       // Handle successful login if needed
     } catch (error) {
       setAuthError("An error occurred during Github login.");
@@ -167,16 +173,13 @@ export default function Page() {
 
   const handleLoginWithSpotify = async () => {
     clearErrors();
-
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "spotify",
         options: {
-          queryParams: {
-            access_type: "offline",
-            prompt: "consent",
-          },
-          redirectTo: `${location.origin}/auth/callback`,
+          redirectTo: `${location.origin}/auth/callback${
+            next ? `?next=${next}` : "/"
+          }`,
         },
       });
 
@@ -184,7 +187,6 @@ export default function Page() {
         setAuthError(error.message);
         return;
       }
-
       // Handle successful login if needed
     } catch (error) {
       setAuthError("An error occurred during Spotify login.");
@@ -193,11 +195,8 @@ export default function Page() {
 
   const handleLogout = async () => {
     try {
-      
       let { error } = await supabase.auth.signOut();
       router.refresh();
-      setSessionStatus(null);
-      setUser(null);
       if (error) {
         setAuthError(error.message);
         return;
@@ -245,6 +244,7 @@ export default function Page() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              disabled={loading}
             />
           </div>
           <div className="mb-6">
@@ -255,12 +255,12 @@ export default function Page() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              disabled={loading}
             />
           </div>
-          <div className="mb-4 mx-2 text-danger">{emailError}</div>
-          <div className="mb-6 mx-2 text-danger">{passwordError}</div>
-          <div className="mb-6 mx-2 text-danger">{authError}</div>
-          <div className="mb-6 mx-2 text-danger">{authError}</div>
+          <div className="mb-4 mx-2 text-danger text-sm">{emailError}</div>
+          <div className="mb-6 mx-2 text-danger text-sm">{passwordError}</div>
+          <div className="mb-6 mx-2 text-danger text-sm">{authError}</div>
           <div className="flex items-center justify-between gap-2">
             <button
               className="bg-primary hover:bg-primary/50 py-2 px-4 rounded w-full"
@@ -273,6 +273,7 @@ export default function Page() {
               className="bg-primary10 hover:bg-primary10/50 py-2 px-4 rounded w-full"
               type="button"
               onClick={handleSignUp}
+              disabled={loading}
             >
               Sign Up
             </button>

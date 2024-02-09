@@ -2,7 +2,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
-const protectedRoutes = ["/photograph", "/temp", "/sandbox"];
+const protectedRoutes = ["/temp", "/sandbox"];
 
 export default async function middleware(req: any) {
   const supabase = createServerComponentClient({ cookies });
@@ -10,7 +10,8 @@ export default async function middleware(req: any) {
     data: { session },
   } = await supabase.auth.getSession();
   if (!session && protectedRoutes.includes(req.nextUrl.pathname)) {
-    const absoluteURL = new URL("/auth/login", req.nextUrl.origin);
+    const absoluteURL = new URL("/auth/unauthenticated", req.nextUrl.origin);
+    absoluteURL.searchParams.append("next", req.nextUrl.pathname);
     return NextResponse.redirect(absoluteURL.toString());
   }
 }

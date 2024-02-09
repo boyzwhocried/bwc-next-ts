@@ -14,10 +14,10 @@ const navigation = [
     navigationName: "photograph",
     link: "/photograph",
   },
-  {
-    navigationName: "login",
-    link: "/auth/login",
-  },
+  // {
+  //   navigationName: "login",
+  //   link: "/auth/login",
+  // },
 ];
 
 function NavBar() {
