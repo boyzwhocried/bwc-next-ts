@@ -25,6 +25,7 @@ export default function Page() {
                 alt={""}
                 width={500}
                 height={500}
+                priority
               />
             </div>
           </Reveal>

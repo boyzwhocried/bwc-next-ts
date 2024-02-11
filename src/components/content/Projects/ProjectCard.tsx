@@ -41,7 +41,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               {stack.slice(0, 5).map((tech, techIndex) => (
                 <span
                   key={techIndex}
-                  className="rounded-md bg-primary50 px-2 py-1 text-sm"
+                  className="rounded bg-primary50 px-2 py-1 text-sm border border-text"
                 >
                   {tech}
                 </span>

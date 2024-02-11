@@ -24,7 +24,7 @@ export const Card = ({
 }: CardProps) => {
   return (
     <div
-      className="max-w-sm rounded-xl overflow-hidden shadow-lg cursor-pointer bg-primary10"
+      className="max-w-sm rounded overflow-hidden shadow-md cursor-pointer bg-card"
       onClick={onclickCard}
     >
       <Image
