@@ -2,13 +2,12 @@
 
 import Loading from "@/components/others/Loading";
 import { createBrowserClient } from "@supabase/ssr";
-import { Session, User } from "@supabase/supabase-js";
-import { useRouter, useSearchParams, redirect } from "next/navigation";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { Session } from "@supabase/supabase-js";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useLayoutEffect, useState } from "react";
 import { FaGithub, FaGoogle, FaSpotify } from "react-icons/fa";
 
 export default function Page() {
-  const [user, setUser] = useState<User | null>(null);
   const [sessionStatus, setSessionStatus] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -20,11 +19,6 @@ export default function Page() {
     setEmailError("");
     setPasswordError("");
     setAuthError("");
-  };
-
-  const clearForms = () => {
-    setEmail("");
-    setPassword("");
   };
 
   const router = useRouter();
@@ -39,21 +33,20 @@ export default function Page() {
   useLayoutEffect(() => {
     async function getUser() {
       const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      const {
         data: { session },
       } = await supabase.auth.getSession();
-
       setSessionStatus(session);
-      setUser(user);
       setLoading(false);
     }
     getUser();
-  }, [supabase.auth, user]);
+  }, [supabase.auth]);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  function validateEmail(email: string): boolean {
+    return /\S+@\S+\.\S+/.test(email);
+  }
 
   const handleSignUp = async () => {
     setLoading(true);
@@ -63,28 +56,24 @@ export default function Page() {
       setLoading(false);
       return;
     }
-
     if (!validateEmail(email)) {
       setEmailError("Please enter a valid email address.");
       setLoading(false);
       return;
     }
-
     if (password.length < 6) {
       setPasswordError("Password must be at least 6 characters long.");
       setLoading(false);
       return;
     }
-
     try {
-      const { data, error } = await supabase.auth.signUp({
+      const { error } = await supabase.auth.signUp({
         email,
         password,
         options: {
           emailRedirectTo: `${location.origin}/auth/callback/signup`,
         },
       });
-
       if (error) {
         setLoading(false);
         setAuthError(error.message);
@@ -93,9 +82,7 @@ export default function Page() {
       router.replace(
         `${location.origin}/auth/confirmation${next ? `?next=${next}` : "/"}`
       );
-      router.refresh();
     } catch (error) {
-      setLoading(false);
       setAuthError("An error occurred during sign up.");
     }
   };
@@ -105,10 +92,11 @@ export default function Page() {
     clearErrors();
     if (!email || !password) {
       setEmailError("Please enter both email and password.");
+      setLoading(false);
       return;
     }
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
@@ -117,18 +105,17 @@ export default function Page() {
         setAuthError(error.message);
         return;
       }
-      setLoading(false);
       router.replace(`${location.origin}${next ? `/${next}` : "/"}`);
-      router.refresh();
     } catch (error) {
-      setLoading(false);
       setAuthError("Invalid email or password.");
     }
   };
+
   const handleLoginWithGoogle = async () => {
+    setLoading(true);
     clearErrors();
     try {
-      let { data, error } = await supabase.auth.signInWithOAuth({
+      let { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
           queryParams: {
@@ -151,9 +138,10 @@ export default function Page() {
   };
 
   const handleLoginWithGithub = async () => {
+    setLoading(true);
     clearErrors();
     try {
-      let { data, error } = await supabase.auth.signInWithOAuth({
+      let { error } = await supabase.auth.signInWithOAuth({
         provider: "github",
         options: {
           redirectTo: `${location.origin}/auth/callback${
@@ -172,9 +160,10 @@ export default function Page() {
   };
 
   const handleLoginWithSpotify = async () => {
+    setLoading(true);
     clearErrors();
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { error } = await supabase.auth.signInWithOAuth({
         provider: "spotify",
         options: {
           redirectTo: `${location.origin}/auth/callback${
@@ -182,7 +171,6 @@ export default function Page() {
           }`,
         },
       });
-
       if (error) {
         setAuthError(error.message);
         return;
@@ -196,7 +184,7 @@ export default function Page() {
   const handleLogout = async () => {
     try {
       let { error } = await supabase.auth.signOut();
-      router.refresh();
+      location.reload();
       if (error) {
         setAuthError(error.message);
         return;
@@ -210,10 +198,10 @@ export default function Page() {
     return <Loading />;
   }
 
-  if (sessionStatus || user) {
+  if (sessionStatus) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="bg-card shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
+        <div className="bg-card shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96 m-6">
           <h1 className="text-2xl font-semibold mb-4 text-center">Logged In</h1>
           <p className="mb-6 text-text text-center">
             Welcome back! You are now logged in.
@@ -231,7 +219,7 @@ export default function Page() {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="bg-card shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
+      <div className="bg-card shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96 m-6">
         <h1 className="text-2xl font-semibold mb-4 text-center text-foreground">
           Login
         </h1>
@@ -309,9 +297,4 @@ export default function Page() {
       </div>
     </div>
   );
-}
-
-function validateEmail(email: string): boolean {
-  // You can use a regex or any other method to validate email format
-  return /\S+@\S+\.\S+/.test(email);
 }
