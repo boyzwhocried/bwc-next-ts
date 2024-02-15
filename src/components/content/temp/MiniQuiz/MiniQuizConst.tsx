@@ -8,7 +8,7 @@ import q4a2 from "/public/assets/image/sandbox/quiz/4/q4a2.webp";
 import q4a3 from "/public/assets/image/sandbox/quiz/4/q4a3.webp";
 import q4a4 from "/public/assets/image/sandbox/quiz/4/q4a4.webp";
 
-const questions = [
+export const questions = [
   {
     prompt: {
       text: "is this 2 color is the same color?",
@@ -78,13 +78,16 @@ const questions = [
       { text: "for a second", image: "" },
     ],
   },
+];
+
+export const questionsAteez = [
   {
     prompt: {
       text: "What does ATEEZ stand for?",
       image: "",
     },
     options: [
-      { text: "A Teenager Zest", image: "" },
+      { text: "A to Z", image: "" },
       { text: "All Together Enthusiastically Embracing Zest", image: "" },
       { text: "All Time Energetic Zingers", image: "" },
       { text: "Always Taking Extra Zips", image: "" },
@@ -228,7 +231,6 @@ const questions = [
       { text: "Wonderland", image: "" },
     ],
   },
+]
 
-];
-
-export default questions;
+// export default questions;
