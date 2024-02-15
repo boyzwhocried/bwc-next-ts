@@ -18,7 +18,7 @@ export default function Unauthenticated() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen w-full">
+    <div className="flex justify-center items-center h-screen w-full p-12 text-center">
       <p>
         This page is protected. Please click{" "}
         <button

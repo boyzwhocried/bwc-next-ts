@@ -10,14 +10,14 @@ export default function Confirmation() {
     const redirect = searchParams.get("next");
     const absoluteURL = new URL("", location.origin);
     redirect
-      ? absoluteURL.searchParams.append("next", redirect as string)
-      : null;
-    router.replace(`${location.origin}${redirect}`);
+      ?? absoluteURL.searchParams.append("next", redirect!)
+    router.replace(`${location.origin}${redirect?redirect:'/'}`);
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen w-full">
+    <div className="flex flex-col justify-center items-center h-screen w-full p-12 text-center">
       <p>Please check your email and confirm your account to continue.</p>
+      <br/>
       <p>
         Click{" "}
         <button
