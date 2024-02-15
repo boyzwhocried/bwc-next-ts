@@ -9,7 +9,7 @@ export default async function middleware(req: any) {
   const {
     data: { session },
   } = await supabase.auth.getSession();
-  if (!session && protectedRoutes.includes(req.nextUrl.pathname)) {
+  if (!session && protectedRoutes.some(route => req.nextUrl.pathname.startsWith(route))) {
     const absoluteURL = new URL("/auth/unauthenticated", req.nextUrl.origin);
     absoluteURL.searchParams.append("next", req.nextUrl.pathname);
     return NextResponse.redirect(absoluteURL.toString());
