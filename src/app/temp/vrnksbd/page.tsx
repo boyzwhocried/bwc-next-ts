@@ -48,7 +48,7 @@ import vrnkphoto31 from "/public/assets/image/vrnkchgv/photos/Screenshot 2024-01
 import vrnkphoto32 from "/public/assets/image/vrnkchgv/photos/screenshot-1707917605078 edited.jpg";
 import { useState } from "react";
 
-export const veronikasphoto = [
+const photosvrnk = [
   vrnkphoto1.src,
   vrnkphoto2.src,
   vrnkphoto3.src,
@@ -101,7 +101,7 @@ export default function Page() {
     return remainingTime;
   }
 
-  const shuffledPhotos = shuffleArray(veronikasphoto);
+  const shuffledPhotos = shuffleArray(photosvrnk);
 
   if (showPage) {
     return (
