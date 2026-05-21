@@ -3,6 +3,8 @@ import path from "path";
 import { GetNewPlaylistData } from "../new-playlist-data";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 const onRepeatPlaylistId = process.env.NEXT_PUBLIC_SPOTIFY_ON_REPEAT_PLAYLIST_ID;
 const cacheFilePath = path.resolve(".cache/cachedPlaylistData.json");
 
@@ -42,5 +44,6 @@ export async function GET() {
     return NextResponse.json(result);
   } catch (error) {
     console.error("Error fetching data:", error);
+    return NextResponse.json({ error: "Failed to fetch playlist data" }, { status: 500 });
   }
 }

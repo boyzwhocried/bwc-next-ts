@@ -1,18 +1,15 @@
 import { supabase } from "@/lib/supabase";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
-  const fetchPhotos = async () => {
-    let { data: images, error } = await supabase.from("images").select("*");
+  const { data: images, error } = await supabase.from("images").select("*");
 
-    if (images) {
-      return images;
-    }
+  if (error) {
+    console.error("Error fetching data:", error.message);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 
-    if (error) {
-      console.error("Error fetching data:", error.message);
-    }
-  };
-  const photosData = await fetchPhotos();
-  return NextResponse.json(photosData);
+  return NextResponse.json(images ?? []);
 }
