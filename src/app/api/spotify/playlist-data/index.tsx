@@ -3,7 +3,7 @@ import path from "path";
 import { GetNewPlaylistData } from "../new-playlist-data";
 
 const onRepeatPlaylistId = process.env.NEXT_PUBLIC_SPOTIFY_ON_REPEAT_PLAYLIST_ID;
-const cacheFilePath = path.resolve(".cache/cachedPlaylistData.json");
+const cacheFilePath = path.join("/tmp", "cachedPlaylistData.json");
 
 export async function GetPlaylistData() {
   try {
@@ -31,7 +31,6 @@ export async function GetPlaylistData() {
     const expirationDate = new Date().getTime() + 7 * 24 * 60 * 60 * 1000;
 
     // Save the data to the cache file
-    await fs.mkdir(path.dirname(cacheFilePath), { recursive: true });
     await fs.writeFile(
       cacheFilePath,
       JSON.stringify({ data: result, expirationDate }),

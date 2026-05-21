@@ -1,9 +1,9 @@
 import axios from "axios";
-import { spotifyNewAccessToken } from "@/lib/spotify";
+import { getSpotifyAccessToken } from "@/lib/spotify";
 
 export async function GetNewPlaylistData(playlistId: string) {
   try {
-    const accessToken = await spotifyNewAccessToken
+    const accessToken = await getSpotifyAccessToken();
     const response = await axios.get(
       `https://api.spotify.com/v1/playlists/${playlistId}`,
       {
