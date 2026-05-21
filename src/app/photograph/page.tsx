@@ -1,17 +1,25 @@
+"use client";
+
 import Image from "next/image";
 import { photos } from "./PhotosConst";
 import { Reveal } from "@/components/others/RevealAnimation";
+import { useState, useEffect } from "react";
 
 const shuffleArray = (array: string[]) => {
-  for (let i = array.length - 1; i > 0; i--) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  return array;
+  return shuffled;
 };
 
 export default function Page() {
-  const shuffledPhotos = shuffleArray(photos);
+  const [shuffledPhotos, setShuffledPhotos] = useState(photos);
+
+  useEffect(() => {
+    setShuffledPhotos(shuffleArray(photos));
+  }, []);
 
   return (
     <>

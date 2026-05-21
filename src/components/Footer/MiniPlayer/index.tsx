@@ -25,6 +25,7 @@ function MiniPlayer() {
     try {
       const res = await fetch("/api/spotify/playlist-data", { method: "GET" });
       const data = await res.json();
+      if (!data?.tracks?.items?.length) return;
       setPlaylistData(data);
       setRandomSongIndex(Math.floor(Math.random() * data.tracks.items.length));
     } catch (error) {
